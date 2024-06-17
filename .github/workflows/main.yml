@@ -9,10 +9,6 @@ jobs:
       # you must check out the repository
       - name: binadox
         uses: devbrain/hello-world-javascript-action@v1.2
-
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           who-to-greet: 'binadox'
       # Use the output from the `hello` step
