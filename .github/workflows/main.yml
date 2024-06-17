@@ -3,14 +3,16 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Binadox Structure-As-Code Analyzer
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: binadox
-        uses: devbrain/hello-world-javascript-action@v1.2
+        uses: devbrain/hello-world-javascript-action@v1.5
         with:
-          who-to-greet: 'binadox'
+          binadox-secret-token: '${{ secrets.BINADOX_TOKEN }}'
+          binadox-server-url: 'https://httpbin.org/post'
+          binadox-project-name: 'zopa'
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Get the status
+        run: echo "Status ${{ steps.hello.outputs.status }}"
