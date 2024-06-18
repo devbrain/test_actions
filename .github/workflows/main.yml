@@ -1,4 +1,4 @@
-on: [push]
+on: [push, pull_request]
 
 jobs:
   binadox_job:
@@ -6,7 +6,7 @@ jobs:
     name: Binadox Structure-As-Code Analyzer
     steps:
       - name: binadox
-        uses: binadox-public/binadox-infrastructure-as-code-analyzer@v1.5
+        uses: binadox-public/binadox-infrastructure-as-code-analyzer@v1.6
         with:
           binadox-secret-token: '${{ secrets.BINADOX_TOKEN }}'
           binadox-server-url: 'https://qa1.binadox.com/api/1/organizations/pricing/callback/analyze_iaac'
