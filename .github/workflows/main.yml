@@ -1,18 +1,15 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  binadox_job:
     runs-on: ubuntu-latest
     name: Binadox Structure-As-Code Analyzer
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: binadox
-        uses: devbrain/hello-world-javascript-action@v1.6
+        uses: binadox-public/binadox-infrastructure-as-code-analyzer@v1.2
         with:
           binadox-secret-token: '${{ secrets.BINADOX_TOKEN }}'
-          binadox-server-url: 'https://httpbin.org/post'
-          binadox-project-name: 'zopa'
-      # Use the output from the `hello` step
+          binadox-server-url: 'https://qa1.binadox.com/api/1/organizations/pricing/callback/analyze_iaac'
+          binadox-project-name: 'my project'
       - name: Get the status
-        run: echo "Status ${{ steps.hello.outputs.status }}"
+        run: echo "Status ${{ steps.binadox.outputs.status }}"
